@@ -8,7 +8,10 @@
   },
   "author": "Theo Nicolaou",
   "license": "ISC",
-  "Repository": "https://github.com/theonicolaou/grunt-basic",
+  "repository" : {
+	"type" : "git",
+	"url" : "http://github.com/npm/npm.git"
+	},
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-concat-css": "^0.3.1",
