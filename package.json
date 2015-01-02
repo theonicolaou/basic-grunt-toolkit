@@ -8,15 +8,16 @@
   },
   "author": "Theo Nicolaou",
   "license": "ISC",
-  "repository" : {
-	"type" : "git",
-	"url" : "https://github.com/theonicolaou/basic-grunt-toolkit"
-	},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theonicolaou/basic-grunt-toolkit"
+  },
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-concat-css": "^0.3.1",
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-concat": "^0.5.0",
+    "grunt-contrib-csslint": "^0.3.1",
     "grunt-contrib-cssmin": "^0.11.0",
     "grunt-contrib-sass": "^0.8.1",
     "grunt-contrib-watch": "^0.6.1",
