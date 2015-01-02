@@ -24,20 +24,20 @@ module.exports = function (grunt) {
   		//lint main CSS file.
   		csslint: {
   			strict: {
-    			options: {
-      			import: 2
-    			},
     			src: ['css/tn.css']
   			},
-/*
-  			lax: {
-    			options: {
-      			import: false
-    			},
-    			src: ['css/tn.css']
-  			},
-*/
 			},
+			
+      autoprefixer: {
+        	options: {
+        		browsers: ['last 3 versions', 'ie 9', 'ie 8']
+          },
+          dist: {
+          	files: {
+          		'css/tn.css': 'css/tn.css'
+          	}
+        	}
+      	},
 			
 			//watch for changes to SCSS files.
   		watch: {
@@ -45,6 +45,10 @@ module.exports = function (grunt) {
       		files: ['scss/*/*.scss'],
       		tasks: ['sass'],
     		},
+        styles: {
+          files: ['css/tn.css'],
+          tasks: ['autoprefixer']
+        }
     	},
     	
     	//concatenate all CSS files with .css extension in "css" folder.
@@ -88,6 +92,15 @@ module.exports = function (grunt) {
   				}
   			},
   			
+  			autoprefixer: {
+  				options: {
+  				  title: "Autoprefixer",
+      			message: "Vendor prefixes added to CSS files",
+      			success: true,
+      			duration: 5	
+  				}
+  			},
+  			
   			watch: {
   				options: {
   				  title: "Watch",
@@ -126,7 +139,7 @@ module.exports = function (grunt) {
   		}	  		
   });
   
-	grunt.registerTask('develop', ['clean', 'notify:clean', 'sass', 'notify:sass', 'watch', 'notify:watch']);
+	grunt.registerTask('develop', ['clean', 'notify:clean', 'sass', 'notify:sass', 'autoprefixer', 'notify:autoprefixer', 'watch', 'notify:watch']);
 	grunt.registerTask('lintcss', ['csslint', 'notify:csslint']);
-	grunt.registerTask('build', ['clean', 'notify:clean', 'sass', 'notify:sass', 'concat:css', 'notify:concat', 'cssmin', 'notify:cssmin']);
+	grunt.registerTask('build', ['clean', 'notify:clean', 'sass', 'notify:sass', 'autoprefixer', 'notify:autoprefixer', 'concat:css', 'notify:concat', 'cssmin', 'notify:cssmin']);
 };
