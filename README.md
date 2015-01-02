@@ -6,6 +6,6 @@ You can then modify the Grunt file as you wish for your projects.
 
 <h1>Roadmap</h1>
 * AutoPrefixer (done)
-* Image Optimisation
+* Image Optimisation (done)
 * CSS lint (in progress)
 * LiveReload
