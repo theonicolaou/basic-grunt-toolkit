@@ -10,7 +10,7 @@
   "license": "ISC",
   "repository" : {
 	"type" : "git",
-	"url" : "https://github.com/theonicolaou/grunt-basic"
+	"url" : "https://github.com/theonicolaou/basic-grunt-toolkit"
 	},
   "devDependencies": {
     "grunt": "^0.4.5",
