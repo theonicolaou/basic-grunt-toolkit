@@ -1,4 +1,4 @@
-<h1>grunt-basic</h1>
+<h1>basic-grunt-toolkit</h1>
 
 Clone the repository and use "npm install" to install all the Grunt plugins
 
