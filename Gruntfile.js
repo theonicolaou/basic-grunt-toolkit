@@ -71,6 +71,31 @@ module.exports = function (grunt) {
     			}]
   			}
 			},
+			
+			imagemin: {
+      	static: {
+        	options: {
+          	pngquant: true,
+          	optipng: true,
+          	advpng: true,
+          	zopflipng: true,
+          	pngcrush: true,
+          	pngout: true,
+          	mozjpeg: true,
+          	jpegRecompress: true,
+          	jpegoptim: true,
+          	gifsicle: true,
+        	}
+      	},
+      	dynamic: {
+        	files: [{
+          	expand: true,
+          	cwd: 'images',
+          	src: ['**/*.{png,jpg,gif}'],
+          	dest: 'images'
+        	}]
+      	}
+    	},
   		
   		//configurations for OS X notifications, for each task.
   		notify: {
@@ -135,11 +160,21 @@ module.exports = function (grunt) {
       			success: true,
       			duration: 5
     			}
-  			}
+  			},
+  			
+  			imagemin: {
+  				options: {
+      			title: "Image Optimisation",
+      			message: "Image optimisation complete",
+      			success: true,
+      			duration: 5
+    			}
+  			},
   		}	  		
   });
   
-	grunt.registerTask('develop', ['clean', 'notify:clean', 'sass', 'notify:sass', 'autoprefixer', 'notify:autoprefixer', 'watch', 'notify:watch']);
+	grunt.registerTask('develop', ['clean', 'notify:clean', 'sass', 'notify:sass', 'autoprefixer', 'notify:autoprefixer', 'watch', 'notify:watch', 'imagemin', 'notify:imagemin']);
 	grunt.registerTask('lintcss', ['csslint', 'notify:csslint']);
-	grunt.registerTask('build', ['clean', 'notify:clean', 'sass', 'notify:sass', 'autoprefixer', 'notify:autoprefixer', 'concat:css', 'notify:concat', 'cssmin', 'notify:cssmin']);
+	grunt.registerTask('optimiseimages', ['imagemin', 'notify:imagemin']);
+	grunt.registerTask('build', ['clean', 'notify:clean', 'sass', 'notify:sass', 'autoprefixer', 'notify:autoprefixer', 'concat:css', 'notify:concat', 'cssmin', 'notify:cssmin', 'imagemin', 'notify:imagemin']);
 };
