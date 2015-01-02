@@ -19,6 +19,21 @@ module.exports = function (grunt) {
       	}
   		},
   		
+  		csslint: {
+  			strict: {
+    			options: {
+      			import: 2
+    			},
+    			src: ['css/tn.css']
+  			},
+  			lax: {
+    			options: {
+      			import: false
+    			},
+    			src: ['css/tn.css']
+  			}
+			},
+
   		watch: {
     		sass: {
       		files: ['scss/*/*.scss'],
@@ -55,6 +70,6 @@ module.exports = function (grunt) {
   		}	  		
   });
 
-	grunt.registerTask('develop', ['clean', 'sass', 'watch', 'notify_hooks']);
+	grunt.registerTask('develop', ['clean', 'sass', 'watch', 'csslint', 'notify_hooks']);
 	grunt.registerTask('build', ['clean', 'sass', 'concat:css', 'cssmin', 'notify_hooks']);
 };
