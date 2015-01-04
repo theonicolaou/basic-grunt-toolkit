@@ -72,7 +72,7 @@ module.exports = function (grunt) {
   			}
 			},
 			
-			imagemin: {
+			image: {
       	static: {
         	options: {
           	pngquant: true,
@@ -162,7 +162,7 @@ module.exports = function (grunt) {
     			}
   			},
   			
-  			imagemin: {
+  			image: {
   				options: {
       			title: "Image Optimisation",
       			message: "Image optimisation complete",
@@ -175,6 +175,6 @@ module.exports = function (grunt) {
   
 	grunt.registerTask('develop', ['clean', 'notify:clean', 'sass', 'notify:sass', 'autoprefixer', 'notify:autoprefixer', 'watch', 'notify:watch']);
 	grunt.registerTask('lintcss', ['csslint', 'notify:csslint']);
-	grunt.registerTask('optimiseimages', ['imagemin', 'notify:imagemin']);
-	grunt.registerTask('build', ['clean', 'notify:clean', 'sass', 'notify:sass', 'autoprefixer', 'notify:autoprefixer', 'concat:css', 'notify:concat', 'cssmin', 'notify:cssmin', 'imagemin', 'notify:imagemin']);
+	grunt.registerTask('optimiseimages', ['image', 'notify:image']);
+	grunt.registerTask('build', ['clean', 'notify:clean', 'sass', 'notify:sass', 'autoprefixer', 'notify:autoprefixer', 'concat:css', 'notify:concat', 'cssmin', 'notify:cssmin', 'image', 'notify:image']);
 };
